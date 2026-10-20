@@ -85,7 +85,7 @@
         <aside class="side card summary" style="background:var(--green)">
           <div class="h2" style="font-size:24px">สรุปคำสั่งซื้อ</div>
           ${t.lines.map((l) => `<div style="display:flex;gap:12px;align-items:center">
-            <div class="img" style="width:56px;height:56px;flex-shrink:0;border-radius:10px;background:${(l.product.colors.find((c) => c.name === l.color) || {}).hex || l.product.bg}"></div>
+            <div class="img" style="width:56px;height:56px;flex-shrink:0;border-radius:10px;background:${(l.product.colors.find((c) => c.name === l.color) || {}).hex || l.product.bg}">${window.UI.photo(l.product, 140)}</div>
             <div style="flex:1;min-width:0;font-size:14px"><b>${esc(l.product.name)}</b><div>${esc([l.color, l.size].filter(Boolean).join(" / "))} × ${l.qty}</div></div>
             <b>${baht(l.product.price * l.qty)}</b></div>`).join("")}
           <div style="border-top:var(--line);padding-top:12px;display:flex;flex-direction:column;gap:8px;font-size:15px">

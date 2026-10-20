@@ -44,7 +44,8 @@ button.chip[aria-pressed="true"],.chip.on{background:var(--ink);color:var(--crea
 .h2{margin:0;font-size:28px;font-weight:800}
 .muted{color:var(--muted)}
 .img{border:2px solid var(--ink);border-radius:14px;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:14px;position:relative;overflow:hidden}
-.img img{width:100%;height:100%;object-fit:cover}
+.img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.img .badge{z-index:1}
 .badge{position:absolute;top:10px;left:10px;background:var(--pink-deep);color:#fff;border-radius:8px;padding:2px 8px;font-size:13px;font-weight:800}
 .stepper{display:inline-flex;align-items:center;border:2px solid var(--ink);border-radius:999px;overflow:hidden;font-weight:800;background:#fff}
 .stepper button{width:44px;height:44px;border:0;background:var(--cream);font-weight:800;font-size:18px}

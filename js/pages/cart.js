@@ -28,7 +28,7 @@
             const p = l.product;
             const variant = [l.color, l.size].filter(Boolean).join(" · ");
             return `<div class="card line">
-              ${imgBox({ ...p, bg: (p.colors.find((c) => c.name === l.color) || {}).hex || p.bg }, "", "")}
+              ${imgBox({ ...p, bg: (p.colors.find((c) => c.name === l.color) || {}).hex || p.bg }, "", "", 240)}
               <div style="flex:1 1 180px;min-width:0;display:flex;flex-direction:column;gap:4px">
                 <a href="product.html?id=${encodeURIComponent(p.id)}" style="font-size:18px;font-weight:800">${esc(p.name)}</a>
                 ${variant ? `<div style="font-size:14px">${esc(variant)}</div>` : ""}

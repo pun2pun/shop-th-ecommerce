@@ -1,5 +1,5 @@
 (function () {
-  const { qs, esc, baht, compact, product, ratingOf, starStr, imgBox, productCard, discountPct, renderHeader, renderFooter, toast } = window.UI;
+  const { qs, esc, baht, compact, product, ratingOf, starStr, imgBox, photo, productCard, discountPct, renderHeader, renderFooter, toast } = window.UI;
   const S = window.Store;
   const p = product(qs("id")) || window.PRODUCTS[0];
   renderHeader(p.category);
@@ -35,7 +35,7 @@
     <div class="split" style="gap:36px">
       <div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:14px">
         <div class="img card" style="height:480px;border-width:3px;border-radius:24px;background:${color.hex}">
-          ${p.image ? `<img src="${esc(p.image)}" alt="${esc(p.name)}">` : `รูปสินค้า · ${esc(color.name)}`}
+          <span>รูปสินค้า · ${esc(color.name)}</span>${photo(p, 1100)}
           ${pct ? `<span class="badge" style="top:16px;left:16px;font-size:16px;padding:4px 12px">-${pct}%</span>` : ""}
         </div>
         <div class="thumbs">${p.colors.map((c, i) => `<button type="button" data-color="${i}" aria-label="ดูสี${esc(c.name)}" aria-pressed="${i === st.color}" style="background:${c.hex}"></button>`).join("")}</div>

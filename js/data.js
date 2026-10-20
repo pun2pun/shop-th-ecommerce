@@ -1,5 +1,8 @@
 // Demo catalog. Ratings, reviews and sales numbers are sample data.
-// To use real photos: put files in /assets and set `image: "assets/xxx.jpg"`.
+// To use your own photos: put files in /assets and set `image: "assets/xxx.jpg"`.
+// Product photos: Unsplash (free under the Unsplash License) — credits in README.md
+const unsplash = (id) => `https://images.unsplash.com/${id}?w=900&q=80&auto=format&fit=crop`;
+
 window.CATEGORIES = [
   { id: "fashion", name: "แฟชั่น" },
   { id: "home", name: "ของใช้ในบ้าน" },
@@ -10,7 +13,7 @@ window.CATEGORIES = [
 window.PRODUCTS = [
   {
     id: "tee-basic", name: "เสื้อยืดคอกลม Basic", category: "fashion",
-    price: 290, oldPrice: 390, sold: 5200, stock: 48, freeShip: true, bg: "#5BD1F5", image: null,
+    price: 290, oldPrice: 390, sold: 5200, stock: 48, freeShip: true, bg: "#5BD1F5", image: unsplash("photo-1620799139507-2a76f79a2f4d"),
     desc: "เสื้อยืดคอกลมผ้าคอตตอน 100% เนื้อผ้านุ่ม ระบายอากาศดี ไม่ย้วยหลังซัก ทรง Regular fit ใส่ได้ทั้งชายและหญิง",
     colors: [{ name: "ฟ้า", hex: "#5BD1F5" }, { name: "ชมพู", hex: "#FF4F8B" }, { name: "ขาว", hex: "#FFFFFF" }, { name: "ดำ", hex: "#1B1035" }],
     sizes: ["S", "M", "L", "XL", "XXL"], soldOutSizes: ["XXL"],
@@ -24,7 +27,7 @@ window.PRODUCTS = [
   },
   {
     id: "tote-canvas", name: "กระเป๋าผ้าแคนวาส", category: "fashion",
-    price: 390, oldPrice: null, sold: 1800, stock: 120, freeShip: true, bg: "#FF8A3D", image: null,
+    price: 390, oldPrice: null, sold: 1800, stock: 120, freeShip: true, bg: "#FF8A3D", image: unsplash("photo-1561715276-a2d087060f1d"),
     desc: "กระเป๋าผ้าแคนวาสหนา 12oz ใส่โน้ตบุ๊ก 14 นิ้วได้ มีช่องซิปด้านใน",
     colors: [{ name: "ครีม", hex: "#F3E7C9" }, { name: "ดำ", hex: "#1B1035" }], sizes: [], soldOutSizes: [],
     specs: [["วัสดุ", "Canvas 12oz"], ["ขนาด", "38 × 42 × 10 ซม."], ["ช่องเก็บ", "ช่องซิปด้านใน 1 ช่อง"]],
@@ -36,7 +39,7 @@ window.PRODUCTS = [
   },
   {
     id: "mug-ceramic", name: "แก้วเซรามิกมินิมอล", category: "home",
-    price: 350, oldPrice: 450, sold: 3100, stock: 60, freeShip: false, bg: "#9EE37D", image: null,
+    price: 350, oldPrice: 450, sold: 3100, stock: 60, freeShip: false, bg: "#9EE37D", image: unsplash("photo-1522120573867-e574959f84c8"),
     desc: "แก้วเซรามิกเคลือบด้าน 350 ml เข้าไมโครเวฟและเครื่องล้างจานได้",
     colors: [{ name: "ขาว", hex: "#FFFFFF" }, { name: "เขียว", hex: "#9EE37D" }], sizes: [], soldOutSizes: [],
     specs: [["ความจุ", "350 ml"], ["วัสดุ", "Stoneware ceramic"], ["ใช้กับ", "ไมโครเวฟ · เครื่องล้างจาน"]],
@@ -47,7 +50,7 @@ window.PRODUCTS = [
   },
   {
     id: "notebook-leather", name: "สมุดปกหนังสังเคราะห์", category: "stationery",
-    price: 220, oldPrice: null, sold: 640, stock: 200, freeShip: false, bg: "#C9A7FF", image: null,
+    price: 220, oldPrice: null, sold: 640, stock: 200, freeShip: false, bg: "#C9A7FF", image: unsplash("photo-1677064061401-f77f966ff8a1"),
     desc: "สมุดขนาด A5 กระดาษถนอมสายตา 100 แกรม 160 หน้า เส้นจุด",
     colors: [{ name: "น้ำตาล", hex: "#8B5A2B" }, { name: "ม่วง", hex: "#C9A7FF" }], sizes: [], soldOutSizes: [],
     specs: [["ขนาด", "A5"], ["กระดาษ", "100 แกรม · 160 หน้า"], ["ลาย", "Dot grid"]],
@@ -56,7 +59,7 @@ window.PRODUCTS = [
   },
   {
     id: "headphone-pro", name: "หูฟังไร้สาย Pro", category: "gadget",
-    price: 1990, oldPrice: 2990, sold: 8400, stock: 15, freeShip: true, bg: "#FF4F8B", image: null,
+    price: 1990, oldPrice: 2990, sold: 8400, stock: 15, freeShip: true, bg: "#FF4F8B", image: unsplash("photo-1553774661-0651f14b2da4"),
     desc: "หูฟังไร้สาย ตัดเสียงรบกวน ใช้งานต่อเนื่อง 30 ชม. ชาร์จ USB-C",
     colors: [{ name: "ดำ", hex: "#1B1035" }, { name: "ขาว", hex: "#FFFFFF" }], sizes: [], soldOutSizes: [],
     specs: [["แบตเตอรี่", "สูงสุด 30 ชม."], ["เชื่อมต่อ", "Bluetooth 5.3"], ["ชาร์จ", "USB-C"], ["รับประกัน", "1 ปี"]],
@@ -68,7 +71,7 @@ window.PRODUCTS = [
   },
   {
     id: "lamp-desk", name: "โคมไฟตั้งโต๊ะ", category: "home",
-    price: 890, oldPrice: null, sold: 920, stock: 5, freeShip: false, bg: "#FFD60A", image: null,
+    price: 890, oldPrice: null, sold: 920, stock: 5, freeShip: false, bg: "#FFD60A", image: unsplash("photo-1756474215958-f0c2a31eddc1"),
     desc: "โคมไฟ LED ปรับแสงได้ 3 ระดับ หัวโคมหมุนได้ 180 องศา",
     colors: [{ name: "เหลือง", hex: "#FFD60A" }, { name: "ขาว", hex: "#FFFFFF" }], sizes: [], soldOutSizes: [],
     specs: [["หลอด", "LED 8W"], ["ปรับแสง", "3 ระดับ"], ["สาย", "USB 1.5 ม."]],
@@ -77,7 +80,7 @@ window.PRODUCTS = [
   },
   {
     id: "bottle-steel", name: "ขวดน้ำสแตนเลส 750ml", category: "home",
-    price: 459, oldPrice: null, sold: 2300, stock: 80, freeShip: true, bg: "#5BD1F5", image: null,
+    price: 459, oldPrice: null, sold: 2300, stock: 80, freeShip: true, bg: "#5BD1F5", image: unsplash("photo-1544003484-3cd181d17917"),
     desc: "ขวดน้ำสแตนเลส 2 ชั้น เก็บเย็น 24 ชม. เก็บร้อน 12 ชม.",
     colors: [{ name: "ฟ้า", hex: "#5BD1F5" }, { name: "ชมพู", hex: "#FF4F8B" }], sizes: [], soldOutSizes: [],
     specs: [["ความจุ", "750 ml"], ["วัสดุ", "Stainless 304"], ["เก็บอุณหภูมิ", "เย็น 24 ชม. · ร้อน 12 ชม."]],
@@ -86,7 +89,7 @@ window.PRODUCTS = [
   },
   {
     id: "cap-washed", name: "หมวกแก๊ปผ้าฟอก", category: "fashion",
-    price: 250, oldPrice: null, sold: 1100, stock: 70, freeShip: false, bg: "#FF8A3D", image: null,
+    price: 250, oldPrice: null, sold: 1100, stock: 70, freeShip: false, bg: "#FF8A3D", image: unsplash("photo-1691256676359-20e5c6d4bc92"),
     desc: "หมวกแก๊ปผ้าฟอกนุ่ม ปรับขนาดด้านหลังได้",
     colors: [{ name: "ส้ม", hex: "#FF8A3D" }, { name: "ดำ", hex: "#1B1035" }], sizes: ["Free size"], soldOutSizes: [],
     specs: [["วัสดุ", "Cotton twill ผ้าฟอก"], ["ขนาด", "ปรับได้ 54–60 ซม."]],

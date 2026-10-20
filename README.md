@@ -38,6 +38,18 @@ js/pages/*.js        logic แต่ละหน้า
 
 ## รูปสินค้า
 
-ตอนนี้เป็นกล่องสี placeholder ใส่รูปจริงได้โดยวางไฟล์ใน `assets/` แล้วตั้ง `image: "assets/xxx.jpg"` ใน `js/data.js`
+รูปโหลดจาก Unsplash (ฟรีภายใต้ [Unsplash License](https://unsplash.com/license)) ถ้ารูปโหลดไม่ขึ้นจะเหลือกล่องสีแทน
+เปลี่ยนเป็นรูปของร้านเอง: วางไฟล์ใน `assets/` แล้วตั้ง `image: "assets/xxx.jpg"` ใน `js/data.js`
+
+| สินค้า | ช่างภาพ (Unsplash) |
+|---|---|
+| เสื้อยืดคอกลม | [Mediamodifier](https://unsplash.com/@mediamodifier) |
+| กระเป๋าผ้าแคนวาส | [Lucrezia Carnelos](https://unsplash.com/@ciabattespugnose) |
+| แก้วเซรามิก | [Nathan Dumlao](https://unsplash.com/@nate_dumlao) |
+| สมุดปกหนัง | [Nifty Leather](https://unsplash.com/s/photos/leather-notebook) |
+| หูฟังไร้สาย | [Petr Macháček](https://unsplash.com/@machec) |
+| โคมไฟตั้งโต๊ะ | [ObjectType RAW](https://unsplash.com/s/photos/modern-lamp) |
+| ขวดน้ำสแตนเลส | [Karl Köhler](https://unsplash.com/@karlkoehler) |
+| หมวกแก๊ป | [personalgraphic.com](https://unsplash.com/s/photos/snapback) |
 
 > คะแนนรีวิว ยอดขาย และรีวิวใน `data.js` เป็นข้อมูลตัวอย่าง

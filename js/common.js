@@ -15,9 +15,14 @@
   }
   const starStr = (avg) => { const full = Math.round(avg); return "★".repeat(full) + "☆".repeat(5 - full); };
 
-  function imgBox(p, cls, extra) {
-    const inner = p.image ? `<img src="${esc(p.image)}" alt="${esc(p.name)}">` : "รูปสินค้า";
-    return `<div class="img ${cls || ""}" style="background:${p.bg}">${inner}${extra || ""}</div>`;
+  // Photo over a coloured box; if the photo fails to load, the box + label stays.
+  function photo(p, w) {
+    if (!p.image) return "";
+    const src = w ? p.image.replace(/([?&])w=\d+/, `$1w=${w}`) : p.image;
+    return `<img src="${esc(src)}" alt="${esc(p.name)}" loading="lazy" onerror="this.remove()">`;
+  }
+  function imgBox(p, cls, extra, w) {
+    return `<div class="img ${cls || ""}" style="background:${p.bg}"><span>รูปสินค้า</span>${photo(p, w)}${extra || ""}</div>`;
   }
   const discountPct = (p) => (p.oldPrice ? Math.round((1 - p.price / p.oldPrice) * 100) : 0);
 
@@ -27,7 +32,7 @@
     const tag = p.stock <= 5 ? `<span class="tag" style="background:var(--cream)">เหลือ ${p.stock} ชิ้น</span>`
       : p.freeShip ? `<span class="tag tag-green">ส่งฟรี</span>` : "<span></span>";
     return `<a class="card p-card" href="product.html?id=${encodeURIComponent(p.id)}">
-      ${imgBox(p, "", pct ? `<span class="badge">-${pct}%</span>` : "")}
+      ${imgBox(p, "", pct ? `<span class="badge">-${pct}%</span>` : "", 500)}
       <div class="p-name">${esc(p.name)}</div>
       <div style="display:flex;align-items:center;gap:6px;font-size:14px"><span class="stars">${starStr(r.avg)}</span><b>${r.avg.toFixed(1)}</b><span>(${r.count.toLocaleString()})</span></div>
       <div style="display:flex;align-items:baseline;gap:8px"><span class="price">${baht(p.price)}</span>${p.oldPrice ? `<span class="strike" style="font-size:14px">${baht(p.oldPrice)}</span>` : ""}</div>
@@ -80,5 +85,5 @@
     toastTimer = setTimeout(() => t.classList.remove("show"), 2200);
   }
 
-  window.UI = { esc, baht, compact, qs, product, ratingOf, starStr, imgBox, productCard, discountPct, renderHeader, renderFooter, toast };
+  window.UI = { esc, baht, compact, qs, product, ratingOf, starStr, imgBox, photo, productCard, discountPct, renderHeader, renderFooter, toast };
 })();
