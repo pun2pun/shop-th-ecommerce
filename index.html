@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SHOP.th — สินค้าทั้งหมด</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600;800&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="site-header"></div>
+<main class="wrap">
+  <section class="hero card">
+    <div style="display:flex;flex-direction:column;gap:12px;flex:1 1 360px">
+      <span class="tag tag-yellow" style="align-self:flex-start;font-size:15px;padding:4px 12px">มาใหม่สัปดาห์นี้</span>
+      <h1 class="h1" style="font-size:48px">ของดี ราคาโดน<br>ช้อปเลยวันนี้</h1>
+      <div style="font-size:18px;font-weight:600">[ข้อความโปรโมชั่นของคุณ]</div>
+    </div>
+    <a class="btn btn-dark" href="#products">ดูสินค้าขายดี →</a>
+  </section>
+
+  <section id="products" style="display:flex;flex-direction:column;gap:20px">
+    <div class="row" style="flex-wrap:wrap;align-items:center">
+      <div>
+        <h2 class="h2" id="list-title">สินค้าทั้งหมด</h2>
+        <div id="list-count" style="font-size:14px"></div>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+        <button type="button" class="chip" data-filter="freeShip" aria-pressed="false">ส่งฟรี</button>
+        <button type="button" class="chip" data-filter="onSale" aria-pressed="false">ลดราคา</button>
+        <button type="button" class="chip" data-filter="top" aria-pressed="false">4.7 ดาวขึ้นไป</button>
+        <label style="display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600">เรียงตาม
+          <select id="sort" style="padding:8px 12px;border:2px solid var(--ink);border-radius:12px;background:#fff;font-size:14px">
+            <option value="popular">ขายดีที่สุด</option>
+            <option value="priceAsc">ราคาต่ำ → สูง</option>
+            <option value="priceDesc">ราคาสูง → ต่ำ</option>
+            <option value="rating">รีวิวสูงสุด</option>
+          </select>
+        </label>
+      </div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+</main>
+<div id="site-footer"></div>
+
+<script src="js/data.js"></script>
+<script src="js/store.js"></script>
+<script src="js/common.js"></script>
+<script src="js/pages/list.js"></script>
+</body>
+</html>
